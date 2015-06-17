@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="1">res/1.JPG</file>
+        <file>res/ico.ico</file>
+    </qresource>
+</RCC>
