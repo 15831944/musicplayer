@@ -99,6 +99,7 @@ void login::accept()
             file3.close();
             this->close();
             MainWindow* w=new MainWindow();
+            w->setAttribute(Qt::WA_DeleteOnClose);
             w->show();
         }
     }
@@ -116,6 +117,7 @@ void login::on_entrybutton_clicked()
 {
     entry* e=new entry();
     this->close();
+    e->setAttribute(Qt::WA_DeleteOnClose);
     e->show();
 }
 

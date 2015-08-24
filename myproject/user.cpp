@@ -17,6 +17,7 @@ void user::on_change_clicked()
 {
     this->close();
     entry* e=new entry(true);
+    e->setAttribute(Qt::WA_DeleteOnClose);
     e->show();
 }
 

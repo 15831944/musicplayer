@@ -383,5 +383,6 @@ void MainWindow::on_membername_clicked()
 {
     this->close();
     user* u=new user();
+    u->setAttribute(Qt::WA_DeleteOnClose);
     u->show();
 }

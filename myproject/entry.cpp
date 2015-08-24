@@ -149,6 +149,7 @@ void entry::accept()
                                  QMessageBox::Yes);
             this->close();
             login* l=new login();
+            l->setAttribute(Qt::WA_DeleteOnClose);
             l->show();
         }
         else
@@ -190,6 +191,7 @@ void entry::accept()
             file3.close();
             this->close();
             MainWindow* w=new MainWindow();
+            w->setAttribute(Qt::WA_DeleteOnClose);
             w->show();
         }
         else
@@ -207,12 +209,14 @@ void entry::on_cancel_clicked()
     {
         this->close();
         MainWindow* m=new MainWindow();
+        m->setAttribute(Qt::WA_DeleteOnClose);
         m->show();
     }
     else
     {
-        login* l=new login();
         this->close();
+        login* l=new login();
+        l->setAttribute(Qt::WA_DeleteOnClose);
         l->show();
     }
 }
