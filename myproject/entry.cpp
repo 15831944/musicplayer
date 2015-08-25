@@ -94,7 +94,7 @@ void entry::accept()
     }
     else
     {
-        if( code1 != code2 && code2 != "请再次输入密码" )
+        if( code1 != code2 || code2 != "请再次输入密码" )
         {
             ui->code21->setText("两次密码不一致，请重新输入");
             bcode2=false;
