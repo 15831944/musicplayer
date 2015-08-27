@@ -63,9 +63,9 @@ void entry::accept()
         }
         else
         {
-            if( name.length()>7 )
+            if( name.length()>15 || name.length()<3 )
             {
-                ui->name1->setText("请输入七个位以下的用户名");
+                ui->name1->setText("请输入3-15位的用户名");
                 bname=false;
             }
             else
@@ -79,9 +79,9 @@ void entry::accept()
     }
     else
     {
-        if( code1.length()>16 )
+        if( code1.length()>16 || code1.length()<7 )
         {
-            ui->code11->setText("请输入16位以下密码");
+            ui->code11->setText("请输入7-16位密码");
             bcode1=false;
         }
         else
@@ -94,7 +94,7 @@ void entry::accept()
     }
     else
     {
-        if( code1 != code2 || code2 != "请再次输入密码" )
+        if( code1 != code2 || code2 == "请再次输入密码" )
         {
             ui->code21->setText("两次密码不一致，请重新输入");
             bcode2=false;
@@ -146,7 +146,7 @@ void entry::accept()
             QMessageBox::warning(this,
                                  tr("提示"),
                                  tr("请重新登录"),
-                                 QMessageBox::Yes);
+                                 QMessageBox::Ok);
             this->close();
             login* l=new login();
             l->setAttribute(Qt::WA_DeleteOnClose);
@@ -175,7 +175,7 @@ void entry::accept()
             QMessageBox::warning(this,
                                  tr("警告"),
                                  tr("用户已存在"),
-                                 QMessageBox::Yes);
+                                 QMessageBox::Ok);
             ui->name1->setFocus();
         }
         if( bname == true && bcode1 == true && bcode2 == true && all == true )
@@ -183,7 +183,7 @@ void entry::accept()
             all=false;
             inout<<name<<code1<<all;
             file.close();
-            QMessageBox::information( NULL,"提示","注册成功",QMessageBox::Yes,QMessageBox::Yes );
+            QMessageBox::information( NULL,"提示","注册成功",QMessageBox::Ok );
             QFile file3("membernow.file");
             file3.open( QIODevice::WriteOnly | QFile::Truncate );
             QDataStream out2(&file3);

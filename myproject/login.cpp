@@ -77,7 +77,7 @@ void login::accept()
             QMessageBox::warning(this,
                                  tr("警告"),
                                  tr("选择自动登录请同时选择记住密码！"),
-                                 QMessageBox::Yes);
+                                 QMessageBox::Ok);
         }
         else
         {
@@ -108,7 +108,7 @@ void login::accept()
         QMessageBox::warning(this,
                              tr("警告"),
                              tr("用户名或密码错误！"),
-                             QMessageBox::Yes);
+                             QMessageBox::Ok);
         ui->name1->setFocus();
     }
 }
